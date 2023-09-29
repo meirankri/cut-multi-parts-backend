@@ -27,10 +27,14 @@ app.post('/cut', upload.single('video'), async (req, res) => {
   console.log('cut', cut);
 });
 
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
 app.use('/segments', express.static('segments'));
 
-app.listen(4000, () => {
-  console.log('Server started on http://localhost:4000');
+app.listen(80, () => {
+  console.log('Server started on http://localhost:80');
 });
 
 const cut = ({ duration = 10 } = {}) => {
